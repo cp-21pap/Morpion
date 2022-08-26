@@ -13,12 +13,9 @@ echo "<h2>Exercice tableau 2</h2>";
 $tab = array();
 
 for($i = 1;$i <= 12; $i++){
-    $tab[] = $i * 7;
+    $tab[$i] = $i * 7;
+    echo "$i * 7 = $tab[$i]"."</br>";
 }
-
-echo "<pre>";
-print_r($tab);
-echo "</pre>";
 ?>
 </body>
 </html>
