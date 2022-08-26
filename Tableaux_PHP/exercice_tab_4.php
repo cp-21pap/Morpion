@@ -14,21 +14,35 @@ echo "<tbody>";
 
 echo"<tr>";
     echo "<th>Clef</th>";
-    echo "<th></th>";
     echo "<th>Valeur</th>";
-echo "<tr>";
+echo "</tr>";
 
-$tab = array(
+$infos = array(
         "nom" => "Perhaita",
         "prenom" => "Paul",
-        "adresse" => "Le virage",
+        "adresse" => "19",
         "npa" => "111",
-        "ville" => "Fornel",
-        "emali" => "paul.perhaita@ceff.ch"
+        "ville" => "Fornet",
+        "email" => "paul.perhaita@ceff.ch"
 );
+
+$aaa = array("nom", "prenom", "adresse", "npa", "ville", "email");
+
+foreach ($infos as $key => $data) {
+    echo"<tr>";
+        echo "<td> $key </td>";
+        echo "<td> $data </td>";
+    echo "</tr>";
+        }
+        echo "<br>";
+
 
 echo"</tbody>";
 echo "</table>";
+/*echo "<pre>";
+print_r($tab);
+echo "</pre>";
+*/
 ?>
 </body>
 </html>

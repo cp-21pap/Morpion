@@ -16,11 +16,7 @@ $today = date("w");
 
 echo "Nous somme : ". $day[$today];
 
-/*
-echo "<pre>";
-print_r($day);
-echo "</pre>";
-*/
+$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
 ?>
 </body>
 </html>
