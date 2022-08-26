@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Exemple1</title>
+    <title>Exemple2</title>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html"; charset="utfl-8" />
 </head>
@@ -9,7 +9,7 @@
 
 <?php
 
-    /* la classe titre est entourée de caractères " précédés du caractère d'échapement */
+/* la classe titre est entourée de caractères " précédés du caractère d'échapement */
 echo "<h1 calss=\"titre\">Hello world</h1>";
 
 echo "\n"."<table>";
