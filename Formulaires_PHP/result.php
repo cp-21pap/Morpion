@@ -7,10 +7,15 @@
 </head>
 
 <body>
-<?php
-echo "<h2>Résultat de l'envoie du formulaire</h2>";
 
-print_r($_post);
+<h2>Résultat de l'envoie du formulaire</h2>
+
+<pre>
+<?php
+print_r($_POST);
 ?>
+</pre>
+
+
 </body>
 </html>
