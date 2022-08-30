@@ -9,7 +9,7 @@
 
 <h2>Rappel sur les formulaires</h2>
 
-<form action="result.php" method="post">
+<form action="check_page.php" method="post">
 
     <table>
          <tr>
@@ -43,11 +43,12 @@
             <td>Femme</td>
             <td><input type="radio" name="choix" value="2"></td>
         </tr>
+        <tr>
+            <td><b>Inscription à la newsletter</b></td>
+            <td><input type="checkbox" name="newsletter"></td>
+        </tr>
     </table>
 
-    <br>
-    <input type="text" name="prenom">
-    <br>
     <input type="submit" value="envoyer">
 
 </form>
