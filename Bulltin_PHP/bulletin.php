@@ -62,13 +62,11 @@ foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"?>
         <tr>
             <td class="ich"><?php echo $id_mod; ?></td> <!--Affichage des IDs des CCO-->
             <td class="modules"><?php echo $tab_mod[$id_mod]["desc"]; ?></td> <!--Affichage des description des CCO-->
+
+            <!--Test pour savoir si la note est suffisante-->
             <?php if($tab_mod[$id_mod]["note"] < 4)
-            {
-                echo "<td class = red>".$tab_mod[$id_mod]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
-            } else
-            {
-                echo "<td class = green>".$tab_mod[$id_mod]["note"]."</td>";
-            } //Affichage des notes des CIE suffisantes-->?>
+            {echo "<td class = red>".$tab_mod[$id_mod]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
+            } else {echo "<td class = green>".$tab_mod[$id_mod]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
             <br>
         </tr>
    </table>
@@ -93,8 +91,7 @@ foreach ($tab_cie AS $id_cie => $value) {?>
            <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage des description des CIE-->
             <?php if($tab_cie[$id_cie]["note"] < 4)
             {
-                echo "<td class = red>".$tab_cie[$id_cie]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
-            } else
+                echo "<td class = red>".$tab_cie[$id_cie]["note"]." </td>";} //Affichage des notes des CIE insuffisantes--> else
             {
                 echo "<td class = green>".$tab_cie[$id_cie]["note"]."</td>";
             } //Affichage des notes des CIE suffisantes-->?>

@@ -4,10 +4,6 @@
 .modules{
     margin-left: 30px;
 }
-.notes{
-    margin-left: 100px;
-    color: green;
-}
 h3{
     padding-left: 75px;
 }
@@ -15,6 +11,11 @@ h3{
     color: red;
 }
 
-.green{
+.green {
+    color: green;
+    padding-left: 60px;
+    padding-right: 30px;
+}
+.notes{
     color: green;
 }
