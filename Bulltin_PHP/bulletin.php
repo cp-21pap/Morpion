@@ -95,16 +95,30 @@ $round_moyenne_mod = round($moyenne_mod*2)/2; //On arrondie la moyenne des CCO a
 $moyenne_cie = $notes_cie / $i_cie; //Calcule de la moyenne des CIE non arrondie
 $round_moyenne_cie = round($moyenne_cie*2)/2; //On arrondie la moyenne des CIE au demi point
 
+//Calcule de la moyenne des Compétences en informatique
+$moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
+
+//Affichage des moyennes des Compétences en informatique
 echo "<table>";
     echo "<tr>";
         echo"<td>Modules de compétence en informatique</td>";
-        echo "<td>$round_moyenne_mod</td>";
+        echo "<td>$round_moyenne_mod</td>"; //Affichage de la moyenne des CCO
     echo "</tr>";
 
     echo "<tr>";
         echo"<td>Cours Interentreprise</td>";
-        echo "<td>$round_moyenne_cie</td>";
+        echo "<td>$round_moyenne_cie</td>"; //Affichage de la moyenne des CIE
     echo "</tr>";
+echo "</table>";
+
+echo "<table>";
+    echo "<tr>";
+        echo "<br>";
+        echo "<td>Moyenne</td>";
+        echo "<td>$moyenne_comp_info</td>"; //Affichage de la moyenne des compétences en informatique
+    echo "</tr>";
+echo "</table>";
+
 ?>
 
 </body>
