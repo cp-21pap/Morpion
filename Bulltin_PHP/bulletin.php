@@ -3,7 +3,8 @@
 <head>
     <title>Bulletin de notes ICH</title>
     <meta name="viewport" content="width=device-width"/>
-    <meta http-equiv="Content-Type" content="text/html" ; charset="utfl-8"/>
+    <meta http-equiv="Content-Type" content="text/html"  charset="utfl-8"/>
+    <link rel="stylesheet" type="text/css" href="bulletin.css" media="all">
 </head>
 <body>
 
@@ -42,49 +43,71 @@ $tab_cie["ICH 216"]["note"] = 5.5; //Note
 $tab_cie["ICH 216"]["desc"] = "- Créer et publier un site Web"; //Description
 $tab_cie["ICH 216"]["note"] = 4.5; //Note
 
+//Note TPI
+$tpi = 5.6; //Note
+
+//----------------------------------------------------------------------------------------------------------------------
+
 $notes_mod = 0; //Initialisation de l'addition des notes des CCO à 0
 $i_mod = 0; //Initialisation de l'incrémentation des notes des CCO à 0
 
 $notes_cie = 0; //Initialisation de l'addition des notes des CIE à 0
 $i_cie = 0; //Initialisation de l'incrémentation des notes des CIE à 0
 
-//Boucle d'affichage des Modules
-foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"
-    echo"<table>";
-        echo"<tr>";
-            echo $id_mod; //Affichage des IDs des CCO
-            echo $tab_mod[$id_mod]["desc"]; //Affichage des description des CCO
-            echo $tab_mod[$id_mod]["note"]; //Affichage des notes des CCO
-            echo "<br>";
-        echo"</tr>";
-   echo"</table>";
+//----------------------------------------------------------------------------------------------------------------------
 
+//Boucle d'affichage des Modules
+foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"?>
+    <table>
+        <tr>
+            <td class="ich"><?php echo $id_mod; ?></td> <!--Affichage des IDs des CCO-->
+            <td class="modules"><?php echo $tab_mod[$id_mod]["desc"]; ?></td> <!--Affichage des description des CCO-->
+            <?php if($tab_mod[$id_mod]["note"] < 4)
+            {
+                echo "<td class = red>".$tab_mod[$id_mod]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
+            } else
+            {
+                echo "<td class = green>".$tab_mod[$id_mod]["note"]."</td>";
+            } //Affichage des notes des CIE suffisantes-->?>
+            <br>
+        </tr>
+   </table>
+
+<?php
     $notes_mod +=$tab_mod[$id_mod]["note"]; //Addition de toutes les notes des cco
     $i_mod++; //Incrémentation de $i_mod pour avoir le nombre de notes des CCO
 }
 ?>
 
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <!--Sous-titre (CIE)-->
-<h3>Cours Interentreprise</h3>
+<h3 class="title">Cours Interentreprise</h3>
 
 <?php
 //Boucle d'affichage des CIE
-foreach ($tab_cie AS $id_cie => $value) {
-    echo"<table>";
-        echo"<tr>";
-            echo $id_cie; // Affichage des IDs des CIE
-            echo $tab_cie[$id_cie]["desc"]; //Affichage des description des CIE
-            echo $tab_cie[$id_cie]["note"]; //Affichage des notes des CIE
-        echo "</tr>";
-    echo"</table>";
+foreach ($tab_cie AS $id_cie => $value) {?>
+    <table>
+        <tr>
+           <td class ="ich"> <?php echo $id_cie; ?></td> <!--Affichage des IDs des CIE-->
+           <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage des description des CIE-->
+            <?php if($tab_cie[$id_cie]["note"] < 4)
+            {
+                echo "<td class = red>".$tab_cie[$id_cie]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
+            } else
+            {
+                echo "<td class = green>".$tab_cie[$id_cie]["note"]."</td>";
+            } //Affichage des notes des CIE suffisantes-->?>
+        </tr>
+    </table>
 
+<?php
     $notes_cie +=$tab_cie[$id_cie]["note"]; //Addition de toutes les notes des CIE
     $i_cie++; //Incrémentation de $i_mod pour avoir le nombre de notes des CIE
-}
-?>
+}?>
 
-<!--Sous-titre (CIE)-->
-<h3>Compétences en informatique</h3>
+
+<!--------------------------------------------------------------------------------------------------------------------->
 
 <?php
 // Calcule de la moyenne des CCO
@@ -98,28 +121,52 @@ $round_moyenne_cie = round($moyenne_cie*2)/2; //On arrondie la moyenne des CIE a
 //Calcule de la moyenne des Compétences en informatique
 $moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
 
-//Affichage des moyennes des Compétences en informatique
-echo "<table>";
-    echo "<tr>";
-        echo"<td>Modules de compétence en informatique</td>";
-        echo "<td>$round_moyenne_mod</td>"; //Affichage de la moyenne des CCO
-    echo "</tr>";
-
-    echo "<tr>";
-        echo"<td>Cours Interentreprise</td>";
-        echo "<td>$round_moyenne_cie</td>"; //Affichage de la moyenne des CIE
-    echo "</tr>";
-echo "</table>";
-
-echo "<table>";
-    echo "<tr>";
-        echo "<br>";
-        echo "<td>Moyenne</td>";
-        echo "<td>$moyenne_comp_info</td>"; //Affichage de la moyenne des compétences en informatique
-    echo "</tr>";
-echo "</table>";
-
+//Calcule de la note globale
+$note_globale = ($moyenne_comp_info + $tpi) / 2;
 ?>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!--Sous-titre (CIE)-->
+<h3 class="title">Compétences en informatique</h3>
+
+<!--Affichage des moyennes des Compétences en informatique-->
+<table>
+    <tr>
+        <td class="ich">Modules de compétence en informatique</td>
+        <td class="notes"><?php echo $round_moyenne_mod ?> </td> <!--Affichage de la moyenne des CCO-->
+    </tr>
+
+    <tr>
+        <td class="ich">Cours Interentreprise</td>
+        <td class="notes"><?php echo $round_moyenne_cie ?></td><!--Affichage de la moyenne des CIE-->
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <br>
+        <td class="ich">Moyenne</td>
+        <td class="green"><?php echo $moyenne_comp_info; ?></td> <!--Affichage de la moyenne des compétences en informatique-->
+    </tr>
+</table>
+
+<!--Sous-titre (TPI)-->
+<h3>TPI</h3>
+<table>
+    <tr>
+        <td class="ich">Moyenne</td>
+        <td class="notes"><?php echo $tpi; ?></td> <!--Affichage de la moyenne TPI-->
+    </tr>
+</table>
+
+<!--Sous-titre (Note Globale)-->
+<table>
+    <tr>
+        <td> <h3>Note globale</h3> </td>
+        <td class="notes"> <b><?php echo $note_globale ?></b> </td>
+    </tr>
+</table>
 
 </body>
 </html>
