@@ -42,8 +42,14 @@ $tab_cie["ICH 216"]["note"] = 5.5; //Note
 $tab_cie["ICH 216"]["desc"] = "- Créer et publier un site Web"; //Description
 $tab_cie["ICH 216"]["note"] = 4.5; //Note
 
+$notes_mod = 0; //Initialisation de l'addition des notes des CCO à 0
+$i_mod = 0; //Initialisation de l'incrémentation des notes des CCO à 0
+
+$notes_cie = 0; //Initialisation de l'addition des notes des CIE à 0
+$i_cie = 0; //Initialisation de l'incrémentation des notes des CIE à 0
+
 //Boucle d'affichage des Modules
-foreach ($tab_mod AS $id_mod => $value){
+foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"
     echo"<table>";
         echo"<tr>";
             echo $id_mod; //Affichage des IDs des CCO
@@ -52,15 +58,10 @@ foreach ($tab_mod AS $id_mod => $value){
             echo "<br>";
         echo"</tr>";
    echo"</table>";
-}
-   $somme_mod = 0;
-   $i = 0;
-    foreach ($tab_mod[$id_mod]["note"] as $key => $valeur) {
-        $somme_mod += $valeur;
-        $i++;
-   }
-$average = $somme_mod / $i;
 
+    $notes_mod +=$tab_mod[$id_mod]["note"]; //Addition de toutes les notes des cco
+    $i_mod++; //Incrémentation de $i_mod pour avoir le nombre de notes des CCO
+}
 ?>
 
 <!--Sous-titre (CIE)-->
@@ -76,12 +77,35 @@ foreach ($tab_cie AS $id_cie => $value) {
             echo $tab_cie[$id_cie]["note"]; //Affichage des notes des CIE
         echo "</tr>";
     echo"</table>";
+
+    $notes_cie +=$tab_cie[$id_cie]["note"]; //Addition de toutes les notes des CIE
+    $i_cie++; //Incrémentation de $i_mod pour avoir le nombre de notes des CIE
 }
 ?>
 
 <!--Sous-titre (CIE)-->
 <h3>Compétences en informatique</h3>
 
+<?php
+// Calcule de la moyenne des CCO
+$moyenne_mod = $notes_mod / $i_mod; //Calcule de la moyenne des CCO non arrondie
+$round_moyenne_mod = round($moyenne_mod*2)/2; //On arrondie la moyenne des CCO au demi point
+
+// Calcule de la moyenne des CIE
+$moyenne_cie = $notes_cie / $i_cie; //Calcule de la moyenne des CIE non arrondie
+$round_moyenne_cie = round($moyenne_cie*2)/2; //On arrondie la moyenne des CIE au demi point
+
+echo "<table>";
+    echo "<tr>";
+        echo"<td>Modules de compétence en informatique</td>";
+        echo "<td>$round_moyenne_mod</td>";
+    echo "</tr>";
+
+    echo "<tr>";
+        echo"<td>Cours Interentreprise</td>";
+        echo "<td>$round_moyenne_cie</td>";
+    echo "</tr>";
+?>
 
 </body>
 </html>
