@@ -1,21 +1,36 @@
 *{
     font-family: verdana, arial, sans-serif;
+    margin-left: 25px;
+}
+body{
+}
+
+h2{
+    margin-left: -20px;
 }
 
 .ich{
     padding-left: 50px;
 }
+.modules{
+
+}
 .notes{
     position: absolute;
-    right: 400px;
+    right: 300px;
 }
 .suffisant{
-    color:green;
+    color: green;
     position: absolute;
-    right: 400px;
+    right: 300px;
 }
 .insuffisant{
     color:red;
     position: absolute;
-    right: 400px;
+    right: 300px;
 }
+.title{
+    background: linear-gradient(to right, #68bbe3, white);
+}
+
+

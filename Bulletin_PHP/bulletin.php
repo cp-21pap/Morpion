@@ -12,7 +12,7 @@
 <h2>Bulletin ICH</h2>
 
 <!--Sous-titre (Modules)-->
-<h3>Modules de compétences en informatique </h3>
+<h3 class = title>Modules de compétences en informatique </h3>
 
 <?php
 // Tableau des modules
@@ -34,7 +34,7 @@ $tab_mod["ICH 431"]["desc"] = " - Exécuter des mandats dans un environnement in
 $tab_mod["ICH 431"]["note"] = 4.5; //Note
 
 //Tableau des CIE
-$tab_cie["ICH 123"]["desc"] = "- Activer les services d´un serveur"; //Description
+$tab_cie["ICH 123"]["desc"] = "- Activer les services d'un serveur"; //Description
 $tab_cie["ICH 123"]["note"] = 5.0; //Note
 $tab_cie["ICH 187"]["desc"] = "- Mettre en service un poste de travail ICT avec le système d’exploitation"; //Description
 $tab_cie["ICH 187"]["note"] = 5.0; //Note
@@ -61,12 +61,12 @@ foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"?>
     <table>
         <tr>
             <td class="ich"><?php echo $id_mod; ?></td> <!--Affichage des IDs des CCO-->
-            <td class="modules"><?php echo $tab_mod[$id_mod]["desc"]; ?></td> <!--Affichage des description des CCO-->
+            <td class="modules"><?php echo $tab_mod[$id_mod]["desc"]; ?></td> <!--Affichage les description des CCO-->
 
             <!--Test pour savoir si la note est suffisante-->
             <?php if($tab_mod[$id_mod]["note"] < 4)
-            {echo "<td class = insuffisant>".$tab_mod[$id_mod]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
-            } else {echo "<td class = suffisant>".$tab_mod[$id_mod]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
+                {echo "<td class = insuffisant>".$tab_mod[$id_mod]["note"]." </td>";} //Affichage des notes des CIE insuffisantes-->
+                    else{echo "<td class = suffisant>".$tab_mod[$id_mod]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
         </tr>
    </table>
 
@@ -87,13 +87,12 @@ foreach ($tab_cie AS $id_cie => $value) {?>
     <table>
         <tr>
            <td class ="ich"> <?php echo $id_cie; ?></td> <!--Affichage des IDs des CIE-->
-           <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage des description des CIE-->
+           <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage les description des CIE-->
+
+            <!--Test pour savoir si la note est suffisante-->
             <?php if($tab_cie[$id_cie]["note"] < 4)
-            {
-                echo "<td class = insuffisant>".$tab_cie[$id_cie]["note"]." </td>";} //Affichage des notes des CIE insuffisantes--> else
-            {
-                echo "<td class = suffisant>".$tab_cie[$id_cie]["note"]."</td>";
-            } //Affichage des notes des CIE suffisantes-->?>
+                {echo "<td class = insuffisant>".$tab_cie[$id_cie]["note"]." </td>";} //Affichage des notes des CIE insuffisantes-->
+                    else{echo "<td class = suffisant>".$tab_cie[$id_cie]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
         </tr>
     </table>
 
@@ -119,7 +118,7 @@ $moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
 
 //Calcule de la note globale
 $note_globale = ($moyenne_comp_info + $tpi) / 2;
-$note_globale = number_format($note_globale,2);
+$note_globale = number_format($note_globale,2); //La note est arrondie à 2 chiffres après la virgule
 ?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -149,7 +148,7 @@ $note_globale = number_format($note_globale,2);
 </table>
 
 <!--Sous-titre (TPI)-->
-<h3>TPI</h3>
+<h3 class = title>TPI</h3>
 <table>
     <tr>
         <td class="ich">Moyenne</td>
@@ -161,16 +160,18 @@ $note_globale = number_format($note_globale,2);
 <table>
     <tr>
         <td> <h3>Note globale</h3> </td>
-        <td class="notes"> <h3><?php echo $note_globale ?></h3> </td>
+        <td class="notes"> <h4><?php echo $note_globale ?></h4> </td> <!-- Affichage de la note globale -->
     </tr>
 </table>
 
 <table>
     <tr>
         <td> <h3>État du CFC : </h3></td>
+
+        <!--Test pour savoir l'état du CFC par rapport à la note gloabe -->
         <?php if($note_globale < 4)
-        {echo "<td class = insuffisant>"."<h3>Échec</h3>"." </td>";} //Affichage de l'état du CFC -> Insuffisant-->
-        else{echo "<td class = suffisant>"."<h3>Réussi</h3>"."</td>";} //Affichage de l'état du CFC -> Suffisant ?>
+            {echo "<td class = insuffisant>"."<h3><b>Échec</b></h3>"." </td>";} //Affichage de l'état du CFC -> Insuffisant-->
+                else{echo "<td class = suffisant>"."<h3><b>Réussi</b></h3>"."</td>";} //Affichage de l'état du CFC -> Suffisant ?>
     </tr>
 </table>
 
