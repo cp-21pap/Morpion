@@ -30,7 +30,7 @@ $tab_mod["ICH 231"]["desc"] = " - Appliquer la protection et la sécurité des d
 $tab_mod["ICH 231"]["note"] = 5.0; //Note
 $tab_mod["ICH 319"]["desc"] = " - Concevoir et implémenter des applications"; //Description
 $tab_mod["ICH 319"]["note"] = 4.5; //Note
-$tab_mod["ICH 431"]["desc"] = " - Concevoir et implémenter des applications"; //Description
+$tab_mod["ICH 431"]["desc"] = " - Exécuter des mandats dans un environnement informatique"; //Description
 $tab_mod["ICH 431"]["note"] = 4.5; //Note
 
 //Tableau des CIE
@@ -40,8 +40,8 @@ $tab_cie["ICH 187"]["desc"] = "- Mettre en service un poste de travail ICT avec 
 $tab_cie["ICH 187"]["note"] = 5.0; //Note
 $tab_cie["ICH 216"]["desc"] = "- Intégrer les terminaux IoE dans une plateforme existante"; //Description
 $tab_cie["ICH 216"]["note"] = 5.5; //Note
-$tab_cie["ICH 216"]["desc"] = "- Créer et publier un site Web"; //Description
-$tab_cie["ICH 216"]["note"] = 4.5; //Note
+$tab_cie["ICH 293"]["desc"] = "- Créer et publier un site Web"; //Description
+$tab_cie["ICH 293"]["note"] = 4.5; //Note
 
 //Note TPI
 $tpi = 5.6; //Note
@@ -65,9 +65,8 @@ foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"?>
 
             <!--Test pour savoir si la note est suffisante-->
             <?php if($tab_mod[$id_mod]["note"] < 4)
-            {echo "<td class = red>".$tab_mod[$id_mod]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
-            } else {echo "<td class = green>".$tab_mod[$id_mod]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
-            <br>
+            {echo "<td class = insuffisant>".$tab_mod[$id_mod]["note"]." </td>"; //Affichage des notes des CIE insuffisantes-->
+            } else {echo "<td class = suffisant>".$tab_mod[$id_mod]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
         </tr>
    </table>
 
@@ -91,9 +90,9 @@ foreach ($tab_cie AS $id_cie => $value) {?>
            <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage des description des CIE-->
             <?php if($tab_cie[$id_cie]["note"] < 4)
             {
-                echo "<td class = red>".$tab_cie[$id_cie]["note"]." </td>";} //Affichage des notes des CIE insuffisantes--> else
+                echo "<td class = insuffisant>".$tab_cie[$id_cie]["note"]." </td>";} //Affichage des notes des CIE insuffisantes--> else
             {
-                echo "<td class = green>".$tab_cie[$id_cie]["note"]."</td>";
+                echo "<td class = suffisant>".$tab_cie[$id_cie]["note"]."</td>";
             } //Affichage des notes des CIE suffisantes-->?>
         </tr>
     </table>
@@ -120,6 +119,7 @@ $moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
 
 //Calcule de la note globale
 $note_globale = ($moyenne_comp_info + $tpi) / 2;
+$note_globale = number_format($note_globale,2);
 ?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -144,7 +144,7 @@ $note_globale = ($moyenne_comp_info + $tpi) / 2;
     <tr>
         <br>
         <td class="ich">Moyenne</td>
-        <td class="green"><?php echo $moyenne_comp_info; ?></td> <!--Affichage de la moyenne des compétences en informatique-->
+        <td class="notes"><?php echo $moyenne_comp_info; ?></td> <!--Affichage de la moyenne des compétences en informatique-->
     </tr>
 </table>
 
@@ -161,7 +161,16 @@ $note_globale = ($moyenne_comp_info + $tpi) / 2;
 <table>
     <tr>
         <td> <h3>Note globale</h3> </td>
-        <td class="notes"> <b><?php echo $note_globale ?></b> </td>
+        <td class="notes"> <h3><?php echo $note_globale ?></h3> </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td> <h3>État du CFC : </h3></td>
+        <?php if($note_globale < 4)
+        {echo "<td class = insuffisant>"."<h3>Échec</h3>"." </td>";} //Affichage de l'état du CFC -> Insuffisant-->
+        else{echo "<td class = suffisant>"."<h3>Réussi</h3>"."</td>";} //Affichage de l'état du CFC -> Suffisant ?>
     </tr>
 </table>
 

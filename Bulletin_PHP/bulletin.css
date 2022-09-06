@@ -1,0 +1,21 @@
+*{
+    font-family: verdana, arial, sans-serif;
+}
+
+.ich{
+    padding-left: 50px;
+}
+.notes{
+    position: absolute;
+    right: 400px;
+}
+.suffisant{
+    color:green;
+    position: absolute;
+    right: 400px;
+}
+.insuffisant{
+    color:red;
+    position: absolute;
+    right: 400px;
+}
