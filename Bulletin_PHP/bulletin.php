@@ -11,6 +11,8 @@
 <!--Titre de la page-->
 <h2>Bulletin ICH</h2>
 
+<h4>Paul Perhaita</h4>
+
 <!--Sous-titre (Modules)-->
 <h3 class = title>Modules de compétences en informatique </h3>
 
@@ -63,10 +65,8 @@ foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"?>
             <td class="ich"><?php echo $id_mod; ?></td> <!--Affichage des IDs des CCO-->
             <td class="modules"><?php echo $tab_mod[$id_mod]["desc"]; ?></td> <!--Affichage les description des CCO-->
 
-            <!--Test pour savoir si la note est suffisante-->
-            <?php if($tab_mod[$id_mod]["note"] < 4)
-                {echo "<td class = insuffisant>".$tab_mod[$id_mod]["note"]." </td>";} //Affichage des notes des CIE insuffisantes-->
-                    else{echo "<td class = suffisant>".$tab_mod[$id_mod]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
+            <!--Test pour savoir si la note est suffisante avec la fonction color-->
+            <?php color($tab_mod, $id_mod);?>
         </tr>
    </table>
 
@@ -90,9 +90,7 @@ foreach ($tab_cie AS $id_cie => $value) {?>
            <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage les description des CIE-->
 
             <!--Test pour savoir si la note est suffisante-->
-            <?php if($tab_cie[$id_cie]["note"] < 4)
-                {echo "<td class = insuffisant>".$tab_cie[$id_cie]["note"]." </td>";} //Affichage des notes des CIE insuffisantes-->
-                    else{echo "<td class = suffisant>".$tab_cie[$id_cie]["note"]."</td>";} //Affichage des notes des CIE suffisantes-->?>
+            <?php color($tab_cie, $id_cie); ?>
         </tr>
     </table>
 
@@ -100,7 +98,6 @@ foreach ($tab_cie AS $id_cie => $value) {?>
     $notes_cie +=$tab_cie[$id_cie]["note"]; //Addition de toutes les notes des CIE
     $i_cie++; //Incrémentation de $i_mod pour avoir le nombre de notes des CIE
 }?>
-
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
@@ -120,6 +117,16 @@ $moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
 $note_globale = ($moyenne_comp_info + $tpi) / 2;
 $note_globale = number_format($note_globale,2); //La note est arrondie à 2 chiffres après la virgule
 ?>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<?php
+//Fonction test pour savoir si la note est suffisante
+function color($tab_ , $id_){
+    if($tab_[$id_]["note"] < 4)
+        {echo "<td class = insuffisant>".$tab_[$id_]["note"]." </td>";} //Affichage des notes des CIE insuffisantes
+            else{echo "<td class = suffisant>".$tab_[$id_]["note"]."</td>";} //Affichage des notes des CIE suffisantes
+} ?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 

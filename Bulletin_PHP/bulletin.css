@@ -1,36 +1,32 @@
 *{
-    font-family: verdana, arial, sans-serif;
+    font-family: verdana, arial, sans-serif; /* Police du texte */
     margin-left: 25px;
 }
-body{
-}
-
 h2{
-    margin-left: -20px;
+    margin-left: -20px; /*Margin du titre principal */
 }
-
 .ich{
-    padding-left: 50px;
+    padding-left: 50px; /* Marge du numéro du module et de la descprtion */
 }
-.modules{
-
+.notes{ /* C'est les moyennes */
+    position: absolute; /* Alignement des notes */
+    right: 300px; /* Marge des notes */
 }
-.notes{
-    position: absolute;
-    right: 300px;
-}
-.suffisant{
+.suffisant{ /* Si la note est > que 4, la note se met en VERT */
     color: green;
     position: absolute;
     right: 300px;
 }
-.insuffisant{
+.insuffisant{ /* Si la note est < que 4, la note se met en ROUGE */
     color:red;
     position: absolute;
     right: 300px;
 }
 .title{
-    background: linear-gradient(to right, #68bbe3, white);
+    background: linear-gradient(to right, #8BC6FC, white); /* Effet dégradé des Titles */
 }
-
-
+h4{ /* Paul Perhaita */
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
