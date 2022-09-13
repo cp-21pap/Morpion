@@ -9,11 +9,10 @@
 <body>
 
 <!--Titre de la page-->
+
 <h2>Bulletin ICH</h2>
 
 <h4>Paul Perhaita</h4>
-
-<!--Sous-titre (Modules)-->
 
 <?php
 // Tableau des modules
@@ -44,9 +43,9 @@ $modules[216]["note"] = 5.5; //Note
 $modules[293]["desc"] = " - Créer et publier un site Web"; //Description
 $modules[293]["note"] = 4.5; //Note
 
-$domaines['CI']['modules'] = array(106, 117, 122, 162, 164, 231, 319, 431);
+$domaines['CI']['modules'] = array(106, 117, 122, 162, 164, 231, 319, 431); //ID Modules CCO
 $domaines['CI']['title'] = "Modules de compétences en informartique"; //Sous-titre (Modules)
-$domaines['CIE']['modules'] = array(123, 187, 216, 293);
+$domaines['CIE']['modules'] = array(123, 187, 216, 293); //ID Modules CIE
 $domaines['CIE']['title'] = "Cours Interentreprise"; //Sous-titre (CIE)
 
 //Note TPI
@@ -64,31 +63,26 @@ $i_cie = 0; //Initialisation de l'incrémentation des notes des CIE à 0
 
 //Boucle d'affichage des Modules
 foreach ($domaines AS $key => $tab_mod){
-    echo "<h3 class = title>" .$tab_mod["title"]. "</h3>";
+    echo "<h3 class = title>" .$tab_mod["title"]. "</h3>"; //Affichage du sous-titre (CCO / CIE)
+
     echo "<table>";
 
     foreach ($tab_mod['modules'] AS $num_mod){
         echo "<tr>";
-        echo "<td class='ich'>".$num_mod. $modules[$num_mod]["desc"]."</td>";
-        echo "<td class='ich'>".color($modules, $num_mod)."</td>";
+            echo "<td class='ich'>".$num_mod. $modules[$num_mod]["desc"]."</td>"; //Affichage de la description
+            echo "<td class='ich'>".color($modules, $num_mod)."</td>"; //Affichage des notes
         echo "</tr>";
         if($key == "CI"){
-            $notes_mod +=$modules[$num_mod]["note"]; //Addition de toutes les notes des cco
+            $notes_mod += $modules[$num_mod]["note"]; //Addition de toutes les notes des cco
             $i_mod++; //Incrémentation de $i_mod pour avoir le nombre de notes des CCO
         } else{}
             $notes_cie += $modules[$num_mod]["note"]; //Addition de toutes les notes des CIE
             $i_cie++; //Incrémentation de $i_cie pour avoir le nombre de notes des CIE
     }
+
     echo "</table>";
 }
 ?>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<!--Sous-titre (CIE)-->
-<!--<h3 class="title">Cours Interentreprise</h3> -->
-
-
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
