@@ -14,36 +14,40 @@
 <h4>Paul Perhaita</h4>
 
 <!--Sous-titre (Modules)-->
-<h3 class = title>Modules de compétences en informatique </h3>
 
 <?php
 // Tableau des modules
-$tab_mod["ICH 106"]["desc"] = " - Interroger, traiter et assurer la maintenance des bases de données"; //Description
-$tab_mod["ICH 106"]["note"] = 3.5; //Note
-$tab_mod["ICH 117"]["desc"] = " - Mettre en place l'infrastructure informatique d'une petite entreprise"; //Description
-$tab_mod["ICH 117"]["note"] = 4.5; //Note
-$tab_mod["ICH 122"]["desc"] = " - Automatiser des procédures à l'aide de scripts et de macros"; //Description
-$tab_mod["ICH 122"]["note"] = 5.0; //Note
-$tab_mod["ICH 162"]["desc"] = " - Analyser et modéliser des données"; //Description
-$tab_mod["ICH 162"]["note"] = 4.5; //Note
-$tab_mod["ICH 164"]["desc"] = " - Créer des bases de données et y insérer des données"; //Description
-$tab_mod["ICH 164"]["note"] = 5.5; //Note
-$tab_mod["ICH 231"]["desc"] = " - Appliquer la protection et la sécurité des données"; //Description
-$tab_mod["ICH 231"]["note"] = 5.0; //Note
-$tab_mod["ICH 319"]["desc"] = " - Concevoir et implémenter des applications"; //Description
-$tab_mod["ICH 319"]["note"] = 4.5; //Note
-$tab_mod["ICH 431"]["desc"] = " - Exécuter des mandats dans un environnement informatique"; //Description
-$tab_mod["ICH 431"]["note"] = 4.5; //Note
+$modules[106]["desc"] = " - Interroger, traiter et assurer la maintenance des bases de données"; //Description
+$modules[106]["note"] = 3.5; //Note
+$modules[117]["desc"] = " - Mettre en place l'infrastructure informatique d'une petite entreprise"; //Description
+$modules[117]["note"] = 4.5; //Note
+$modules[122]["desc"] = " - Automatiser des procédures à l'aide de scripts et de macros"; //Description
+$modules[122]["note"] = 5.0; //Note
+$modules[162]["desc"] = " - Analyser et modéliser des données"; //Description
+$modules[162]["note"] = 4.5; //Note
+$modules[164]["desc"] = " - Créer des bases de données et y insérer des données"; //Description
+$modules[164]["note"] = 5.5; //Note
+$modules[231]["desc"] = " - Appliquer la protection et la sécurité des données"; //Description
+$modules[231]["note"] = 5.0; //Note
+$modules[319]["desc"] = " - Concevoir et implémenter des applications"; //Description
+$modules[319]["note"] = 4.5; //Note
+$modules[431]["desc"] = " - Exécuter des mandats dans un environnement informatique"; //Description
+$modules[431]["note"] = 4.5; //Note
 
 //Tableau des CIE
-$tab_cie["ICH 123"]["desc"] = "- Activer les services d'un serveur"; //Description
-$tab_cie["ICH 123"]["note"] = 5.0; //Note
-$tab_cie["ICH 187"]["desc"] = "- Mettre en service un poste de travail ICT avec le système d’exploitation"; //Description
-$tab_cie["ICH 187"]["note"] = 5.0; //Note
-$tab_cie["ICH 216"]["desc"] = "- Intégrer les terminaux IoE dans une plateforme existante"; //Description
-$tab_cie["ICH 216"]["note"] = 5.5; //Note
-$tab_cie["ICH 293"]["desc"] = "- Créer et publier un site Web"; //Description
-$tab_cie["ICH 293"]["note"] = 4.5; //Note
+$modules[123]["desc"] = " - Activer les services d'un serveur"; //Description
+$modules[123]["note"] = 5.0; //Note
+$modules[187]["desc"] = " - Mettre en service un poste de travail ICT avec le système d’exploitation"; //Description
+$modules[187]["note"] = 5.0; //Note
+$modules[216]["desc"] = " - Intégrer les terminaux IoE dans une plateforme existante"; //Description
+$modules[216]["note"] = 5.5; //Note
+$modules[293]["desc"] = " - Créer et publier un site Web"; //Description
+$modules[293]["note"] = 4.5; //Note
+
+$domaines['CI']['modules'] = array(106, 117, 122, 162, 164, 231, 319, 431);
+$domaines['CI']['title'] = "Modules de compétences en informartique"; //Sous-titre (Modules)
+$domaines['CIE']['modules'] = array(123, 187, 216, 293);
+$domaines['CIE']['title'] = "Cours Interentreprise"; //Sous-titre (CIE)
 
 //Note TPI
 $tpi = 5.6; //Note
@@ -59,45 +63,42 @@ $i_cie = 0; //Initialisation de l'incrémentation des notes des CIE à 0
 //----------------------------------------------------------------------------------------------------------------------
 
 //Boucle d'affichage des Modules
-foreach ($tab_mod AS $id_mod => $value){ // $id_mod = "ICH XYZ"?>
-    <table>
-        <tr>
-            <td class="ich"><?php echo $id_mod; ?></td> <!--Affichage des IDs des CCO-->
-            <td class="modules"><?php echo $tab_mod[$id_mod]["desc"]; ?></td> <!--Affichage les description des CCO-->
+foreach ($domaines AS $key => $tab_mod){
+    echo "<h3 class = title>" .$tab_mod["title"]. "</h3>";
+    echo "<table>";
 
-            <!--Test pour savoir si la note est suffisante avec la fonction color-->
-            <?php color($tab_mod, $id_mod);?>
-        </tr>
-   </table>
-
-<?php
-    $notes_mod +=$tab_mod[$id_mod]["note"]; //Addition de toutes les notes des cco
-    $i_mod++; //Incrémentation de $i_mod pour avoir le nombre de notes des CCO
+    foreach ($tab_mod['modules'] AS $num_mod){
+        echo "<tr>";
+        echo "<td class='ich'>".$num_mod. $modules[$num_mod]["desc"]."</td>";
+        echo "<td class='ich'>".color($modules, $num_mod)."</td>";
+        echo "</tr>";
+        if($key == "CI"){
+            $notes_mod +=$modules[$num_mod]["note"]; //Addition de toutes les notes des cco
+            $i_mod++; //Incrémentation de $i_mod pour avoir le nombre de notes des CCO
+        } else{}
+            $notes_cie += $modules[$num_mod]["note"]; //Addition de toutes les notes des CIE
+            $i_cie++; //Incrémentation de $i_cie pour avoir le nombre de notes des CIE
+    }
+    echo "</table>";
 }
 ?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <!--Sous-titre (CIE)-->
-<h3 class="title">Cours Interentreprise</h3>
+<!--<h3 class="title">Cours Interentreprise</h3> -->
+
+
+
+<!--------------------------------------------------------------------------------------------------------------------->
 
 <?php
-//Boucle d'affichage des CIE
-foreach ($tab_cie AS $id_cie => $value) {?>
-    <table>
-        <tr>
-           <td class ="ich"> <?php echo $id_cie; ?></td> <!--Affichage des IDs des CIE-->
-           <td class ="modules"> <?php echo $tab_cie[$id_cie]["desc"]; ?></td> <!--Affichage les description des CIE-->
-
-            <!--Test pour savoir si la note est suffisante-->
-            <?php color($tab_cie, $id_cie); ?>
-        </tr>
-    </table>
-
-<?php
-    $notes_cie +=$tab_cie[$id_cie]["note"]; //Addition de toutes les notes des CIE
-    $i_cie++; //Incrémentation de $i_mod pour avoir le nombre de notes des CIE
-}?>
+//Fonction test pour savoir si la note est suffisante
+function color($tab_ , $id_){
+    if($tab_[$id_]["note"] < 4)
+    {echo "<td class = insuffisant>".$tab_[$id_]["note"]." </td>";} //Affichage des notes insuffisantes
+        else{echo "<td class = suffisant>".$tab_[$id_]["note"]."</td>";} //Affichage des notes suffisantes
+} ?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
@@ -111,22 +112,23 @@ $moyenne_cie = $notes_cie / $i_cie; //Calcule de la moyenne des CIE non arrondie
 $round_moyenne_cie = round($moyenne_cie*2)/2; //On arrondie la moyenne des CIE au demi point
 
 //Calcule de la moyenne des Compétences en informatique
-$moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
+$round_moyenne_comp_info = ($round_moyenne_mod + $round_moyenne_cie) / 2;
 
 //Calcule de la note globale
-$note_globale = ($moyenne_comp_info + $tpi) / 2;
+$note_globale = ($round_moyenne_comp_info + $tpi) / 2;
 $note_globale = number_format($note_globale,2); //La note est arrondie à 2 chiffres après la virgule
 ?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<?php
-//Fonction test pour savoir si la note est suffisante
-function color($tab_ , $id_){
-    if($tab_[$id_]["note"] < 4)
-        {echo "<td class = insuffisant>".$tab_[$id_]["note"]." </td>";} //Affichage des notes des CIE insuffisantes
-            else{echo "<td class = suffisant>".$tab_[$id_]["note"]."</td>";} //Affichage des notes des CIE suffisantes
-} ?>
+<?php function average($titre_ , $round_moyenne_){
+echo "<table>";
+    echo "<tr>";
+        echo "<td class = ich>$titre_</td>";
+        echo "<td class = notes>$round_moyenne_</td>"; // Affichage de la moyenne
+    echo "</tr>";
+echo "</table>";
+}?>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
@@ -134,34 +136,18 @@ function color($tab_ , $id_){
 <h3 class="title">Compétences en informatique</h3>
 
 <!--Affichage des moyennes des Compétences en informatique-->
-<table>
-    <tr>
-        <td class="ich">Modules de compétence en informatique</td>
-        <td class="notes"><?php echo $round_moyenne_mod ?> </td> <!--Affichage de la moyenne des CCO-->
-    </tr>
+<?php $titre_mod = "Modules de compétence en informatique";
+    average($titre_mod, $round_moyenne_mod); //Affichage de la moyenne des CCO?>
 
-    <tr>
-        <td class="ich">Cours Interentreprise</td>
-        <td class="notes"><?php echo $round_moyenne_cie ?></td><!--Affichage de la moyenne des CIE-->
-    </tr>
-</table>
+<?php $titre_cie = "Cours Interentreprise";
+    average($titre_cie, $round_moyenne_cie); //Affichage de la moyenne des CIE?>
 
-<table>
-    <tr>
-        <br>
-        <td class="ich">Moyenne</td>
-        <td class="notes"><?php echo $moyenne_comp_info; ?></td> <!--Affichage de la moyenne des compétences en informatique-->
-    </tr>
-</table>
+<?php $titre_moyenne = "Moyenne";
+    average($titre_moyenne, $round_moyenne_comp_info);  //Affichage de la moyenne des CIE?>
 
 <!--Sous-titre (TPI)-->
 <h3 class = title>TPI</h3>
-<table>
-    <tr>
-        <td class="ich">Moyenne</td>
-        <td class="notes"><?php echo $tpi; ?></td> <!--Affichage de la moyenne TPI-->
-    </tr>
-</table>
+<?php average($titre_moyenne, $tpi); ?>
 
 <!--Sous-titre (Note Globale)-->
 <table>
