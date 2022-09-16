@@ -1,0 +1,28 @@
+h1{
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to right, #8BC6FC, white);
+}
+h2{
+    margin-left: 100px;
+}
+i{
+    font-family: verdana, sans-serif;
+}
+a{
+    color: black;
+    border: 2px solid black;
+    text-decoration-line: none;
+    background-color: gainsboro;
+}
+a:hover{
+    background-color: white;
+}
+*{
+   font-family: verdana, arial, sans-serif;
+}
+
+footer{
+    margin-top: 100px;
+}
+

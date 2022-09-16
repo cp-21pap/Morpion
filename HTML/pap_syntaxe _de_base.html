@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html lang="fr">        
+    <head> 
+        <meta charset="utf-8">
+        <title>PAP_Doc_SDB</title> 
+        <link rel="stylesheet" type="text/css" href="doc.css" media="all">
+    </head>
+    <body>   
+
+        <!---------------------Titre de la doc---------------------->
+        <a id="Up_SDB"></a>
+        <h1>Documentation sur la syntaxe de base HTML 5 | [<i>Perhaita Paul</i>]</h1>
+
+        <!---------------------The Start----------------------> 
+
+        <h2>Debut de la page HTLM</h2>
+
+        <dl>
+            <dt><b>Basculer en HTML 5</b></dt>
+            <dd><i>Exemple:</i> &lt;!doctype html&gt;</dd>
+            <br>
+
+
+            <!---------------------Ouvrir le document HTML en "fr"---------------------->
+            <dt><b>Ouvrir le document HTML en "fr"</b></dt>
+            <dd><i>Exemple:</i> &lt;html lang="fr"&gt;</dd>
+            <br>
+
+            <!---------------------L'entete ----------------------> 
+
+            <dt><b>Titre de la page</b></dt>
+            <pre><dd><i>Exemple:</i>
+        &lt;head&gt;
+        &lt;meta charset="utf-8">
+        &lt;title&gt;"Titre"&lt;/title&gt;
+        &lt;/head&gt; </dd></pre>
+        </dl>
+
+        <!---------------------Debut du doucment texte HTML---------------------->
+
+        <dl>    
+            <dt><b>Debut et fin de la page text HTML</b></dt>
+            <dd><i>Exemple:</i>&lt;body&gt;....&lt;/body&gt;
+        </dl>
+
+        <hr>
+
+        <!---------------------Balises de mise en forme basique---------------------->
+
+        <h2> <a id="Balises"/>Balises mise en forme basique</h2>
+
+        <dl>
+            <dt><b>Texte en gras</b></dt>
+            <dd><i>Exemple:</i> &lt;b&gt;....&lt;/b&gt;
+                <p>=&gt; <b>Texte en gras</b></p></dd>
+
+            <dt><b>Texte en italique</b></dt>
+            <dd><i>Exemple:</i> &lt;i&gt;....&lt;/i&gt;
+                <p>=&gt; <i>Texte en italique</i></p></dd>
+
+            <dt><b>Exposant</b></dt>
+            <dd><i>Exemple:</i> &lt;sup&gt;....&lt;/sup&gt;
+                <p>=&gt; x<sup>2</sup></p></dd>
+
+            <dt><b>Indice</b></dt>
+            <dd><i>Exemple:</i> &lt;sub&gt;....&lt;/sub&gt;
+                <p>=&gt; x<sub>2</sub></p></dd>
+
+            <dt><b>Texte barré</b></dt>
+            <dd><i>Exemple:</i> &lt;del&gt;....&lt;/del&gt;
+                <p>=&gt; <del>Texte barré</del></p></dd>
+
+            <dt><b>Texte préformaté</b></dt>
+            <dd><i>Exemple:</i> &lt;pre&gt;....&lt;/pre&gt; (Elle garde les espaces multiples et les retour à la ligne, et change la police)
+                <pre>=&gt;Ce texte 
+         a été écrit avec la balise "pre"</pre>
+
+            <dt><b>Balise avec attribut</b></dt>
+            <dd><i>Exemple:</i> &lt;bdo dir="ltr" ou "rtl"....&lt;/bdo&gt;[<i>left to right</i> ou <i>right to left</i>] (La balise change le sens du texte)<br> 
+                =&gt; Texte de gauhce à droite / <bdo dir="rtl" >Texte de droite à gauche</bdo></dd>
+        </dl>
+
+        <hr>
+
+        <!---------------------Titres---------------------->
+
+        <h2><a id="Titre">Titres</a></h2>
+
+        <dl>
+            <dt><b>Diffrents tailles de titres</b></dt>
+            <dd><i>Exemple:</i> &lt;h1&gt;....&lt;/h1&gt;
+                <h1>Titre 1</h1></dd>
+
+            <dt><b>Diffrents tailles de titres</b></dt>
+            <dd><i>Exemple:</i> &lt;h2&gt;....&lt;/h2&gt;
+                <h2>Titre 2</h2></dd>
+
+            <dt><b>Diffrents tailles de titres</b></dt>
+            <dd><i>Exemple:</i> &lt;h3&gt;....&lt;/h3&gt;
+                <h3>Titre 3</h3></dd>
+
+            <dt><b>Diffrents tailles de titres</b></dt>
+            <dd><i>Exemple:</i> &lt;h4&gt;....&lt;/h4&gt;
+                <h4>Titre 4</h4></dd>
+
+            <dt><b>Diffrents tailles de titres</b></dt>
+            <dd><i>Exemple:</i> &lt;h5&gt;....&lt;/h5&gt;
+                <h5>Titre 5</h5></dd>
+
+            <dt><b>Diffrents tailles de titres</b></dt>
+            <dd><i>Exemple:</i> &lt;h6&gt;....&lt;/h6&gt;
+                <h6>Titre 6</h6></dd>
+        </dl>
+
+        <hr>
+
+        <!---------------------Utlisation des listes---------------------->
+
+        <h2><a id="Listes">Listes</a> </h2>
+        <dl>
+            <dt><b>Notion de base</b></dt>
+            <dd>Dans une liste, chauqe element doit avoir les balise &lt;li&gt;Element x&lt;/li&gt;
+                <p><i>Exemple:</i> &lt;li&gt;....&lt;/li&gt;</p>
+                <pre> &lt;ul&gt;
+        &lt;li&gt;Element 1&lt;/li&gt;
+        &lt;li&gt;Element 2&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+
+            <dt><b>Liste à puces</b></dt>
+            <dd><i>Exemple:</i> &lt;ul&gt;....&lt;/ul&gt; 
+                <ul><li>Element 1</li><li>Element 2</li><li>Element 3</li></ul></dd>
+
+            <dt><b>Liste numérotées</b></dt>
+            <dd><i>Exemple:</i> &lt;ol&gt;....&lt;/ol&gt; 
+                <ol><li>Element A</li><li>Element B</li><li>Element C</li></ol></dd>
+
+            <dt><b>Liste de définitions</b></dt>
+            <dd><i>Exemple:</i> &lt;dl&gt;,&lt;dt&gt;,&lt;dd&gt;
+
+                <pre>
+    &lt;dl&gt;
+    &lt;dt&gt;....&lt;/dt&gt;
+        &lt;dd&gt;....&lt;/dd&gt;
+    &lt;dt&gt;....&lt;/dt&gt;
+        &lt;dd&gt;....&lt;/dd&gt;
+    &lt;dt&gt;....&lt;/dt&gt;
+        &lt;dd&gt;....&lt;/dd&gt;
+    &lt;/dl&gt;
+    </pre></dd>
+        </dl>
+
+        <hr>
+
+        <!---------------------Paragraphes, retour à la ligne et ligne de séparation---------------------->
+        <h2><a id="Saut_de_ligne">Saut de ligne, paragraphes, ligne de séparation</a></h2>
+
+        <dl>
+            <dt><b>Retour à la ligne</b></dt>
+            <dd><i>Exemple:</i> &lt;br&gt;
+                <p> Texte 1</p> <p> Texte 2</p></dd>
+
+            <dt><b>Paragraphe</b></dt>
+            <dd><i>Exemple:</i> &lt;p&gt;....&lt;/p&gt;
+                <p>Ceci est un paragraphe</p></dd>
+
+            <dt><b>Ligne de séparation</b></dt>
+            <dd><i>Exemple:</i> &lt;hr&gt;</dd>
+        </dl>
+        <hr>
+
+        <!---------------------Citations---------------------->
+
+        <h2><a id="Citations">Citations et abrévations</a></h2>
+        <dl>
+            <dt><b>Blocquote</b></dt>
+            <dd><i>Exemple:</i> &lt;blockquote&gt;....&lt;/blockquote&gt;
+                <blockquote>Texte en blockquote</blockquote></dd>
+
+            <dt><b>Citations courtes(guillemets)</b></dt>
+            <dd><i>Exemple:</i> &lt;q&gt;....&lt;/q&gt;
+                <p><q>Ceci est une citation</q></p></dd>
+            
+            <a id="abbr"/>
+            <dt><b>Abréviations</b></dt>
+            <dd><i>Exemple:</i>&lt abbr title="Cours Interentreprises"&gt CIE&lt /abbr&gt
+                <p><abbr title="Cours Interentreprise">CIE</abbr></p></dd>
+        </dl>
+        <a style="color:dodgerblue" href="#Up_SDB">Page Up</a>
+        <p><a style="color:dodgerblue" href="index.html" target="_self">Home Page</a></p>
+
+    </body>
+</html>
+
+
+<!---------------------Paul Perhaita---------------------->
