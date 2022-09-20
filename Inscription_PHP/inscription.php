@@ -92,8 +92,8 @@
                             <label for="submit_conf" class="col-sm-12 col-form-label"></label>
                             <label for="reset_conf" class="col-sm-12 col-form-label"></label>
                             <div class="col-sm-12">
-                                <button type="reset" class="btn btn-warning btn-lg pull-right margin-left" id="reset_conf" name="reset_conf">Annuler</button>
-                                <button type="submit" class="btn btn-primary btn-lg pull-right" id="submit_conf" name="submit_conf">S'inscrire</button>
+                                <button type="reset" class="btn btn-warning btn-lg pull-right" id="reset_conf" name="reset_conf">Annuler</button>
+                                <button type="button" class="btn btn-primary btn-lg pull-right" id="submit_conf" name="submit_conf">S'inscrire</button>
                             </div>
                         </div>
                     </form>
