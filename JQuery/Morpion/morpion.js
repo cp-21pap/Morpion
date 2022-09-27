@@ -8,8 +8,21 @@ $(function (){
            $(this).addClass(("symbole_") + ((turn) ? "0" : "1"))
            turn =! turn // Inverser la valeur de bool
        }
-
        move++;
+       if(findWinner() != -1 && findWinner() != ""){
+           if(findWinner() == ("symbole_1")){
+               $('body').append('<div class="winner"><pan>Winner</pan>X</div>');
+               $('body').append('<button onclick="location.reload()">Play Again</button>');
+               $('.winner').css('background-color', '#61892f');
+               $('button').css('color', '#61892f');
+           }else {
+               $('body').append('<div class="winner"><pan>Winner</pan>O</div>');
+               $('body').append('<button onclick="location.reload()">Play Again</button>');
+               $('.winner').css('background-color', '#61892f');
+               $('button').css('color', '#61892f');
+           }
+           turn = false;
+       }
    })
 });
 
@@ -39,7 +52,7 @@ function findWinner() {
     }else if((cs2 == cs5) && (cs5 == cs8)) {
         return cs8;
     }else if((cs3 == cs6) && (cs6 == cs9)) {
-        return  sp9;
+        return  cs9;
     }
     //check diagonals
     else if ((cs1 == cs5) && (cs5 == cs9)){
@@ -47,6 +60,9 @@ function findWinner() {
     }else if ((cs3 == cs5) && (cs5 == cs7)) {
         return cs7;
     }
+
+    //no winner
+    return -1;
 
 }
 
