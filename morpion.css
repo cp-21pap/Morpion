@@ -1,0 +1,60 @@
+body{
+    background-color: #0d1117;
+}
+
+td {
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    border-color: #00D8FF;
+    border-width: 3px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-color: #00D8FF;
+    margin-top: 10%;
+    border-width: 5px;
+    border-radius: 5px;
+
+}
+
+.symbole_0{
+    background-image:url("./morpion/0.png");
+}
+
+.symbole_1{
+    background-image:url("./morpion/1.png");
+}
+
+.winner{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+button{
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #0d1117 ;
+    border-color: #00D8FF;
+}
+
+button:hover{
+    background-color: #00D8FF ;
+    border-color: #0d1117;
+   color : black;
+
+}
+
+.title{
+    color: #00D8FF;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 43%;
+}
+
