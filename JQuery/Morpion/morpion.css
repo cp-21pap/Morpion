@@ -4,6 +4,11 @@ td {
     text-align: center;
 }
 
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .symbole_0{
     background-image:url("./morpion/0.png");
 }
@@ -12,6 +17,17 @@ td {
     background-image:url("./morpion/1.png");
 }
 
-.blue{
-    border:2px solid blue;
+.winner{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
 }
+button{
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+

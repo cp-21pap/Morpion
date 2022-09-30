@@ -10,13 +10,13 @@ $(function (){
        }
        move++;
             if (findWinner() == ("symbole_1")) {
-                $('body').append('<div class="winner"><span>Winner</span> X</div>');
+                $('body').append('<div class="winner"><span>Winner :</span> X</div>');
                 $('body').append('<button onclick="location.reload()">Play Again</button>');
                 $('.winner').css('background-color', '#61892f');
                 $('button').css('color', '#61892f');
             } else if (findWinner() == ("symbole_0")) {
-                $('body').append('<div class="winner"><pan>Winner</pan> O</div>');
-                $('body').append('<button onclick="location.reload()">Play Again</button>');
+                $('body').append('<div class="winner"><span>Winner :</span> O</div>');
+                $('body').append('<button class="glow-on-hover" type="button" onclick="location.reload()">Play Again</button>');
                 $('.winner').css('background-color', '#ff0000');
                 $('button').css('color', '#ff0000');
             }
@@ -61,6 +61,5 @@ function findWinner() {
 
     //no winner
     return -1;
-
 }
 
