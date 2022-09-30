@@ -1,5 +1,15 @@
 $(function (){
 
+    $.validator.addMethod("PWCHECK",
+        function (value,element) {
+        if(/^(?=.*?[A-Z]{1,})(?=(.*[a-z]){1,})(?=(.*[0-9]){1,})(?=(.*[$@$!%*?&]){1,}).{8,}$/.test(value)){
+            return true;
+        }else {
+            return false;
+        };
+        }
+     );
+
     $("#inscription_form").validate(
         {
             //Nom
@@ -18,11 +28,13 @@ $(function (){
                 },
                 password: {
                     required: true,
-                    minlength: 5
+                    minlength: 5,
+                    PWCHECK: true
                 },
                 password_conf: {
                     required: true,
-                    equalTo: "#password"
+                    equalTo: "#password",
+                    PWCHECK: true
                 }
             },
 
@@ -41,11 +53,13 @@ $(function (){
                 },
                 password: {
                     required: "Veuillez saisir votre mot de passe",
-                    minlength: "Votre mot de passe est trop court"
+                    minlength: "Votre mot de passe est trop court",
+                    PWCHECK: "Le mot de passe doit comporter au minimum 8 caratères, dont une minuscule, une majuscule, un chifre et un caratère special."
                 },
                 password_conf: {
                     required: "Veuillez saisir une deuxième fois votre mot de passe",
-                    equalTo: "Les mots de passe ne sont pas indentiques"
+                    equalTo: "Les mots de passe ne sont pas indentiques",
+                    PWCHECK: "Le mot de passe doit comporter au minimum 8 caratères, dont une minuscule, une majuscule, un chifre et un caratère special."
                 }
 
             },
