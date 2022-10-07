@@ -28,7 +28,7 @@ $(function (){
                 },
                 password: {
                     required: true,
-                    minlength: 5,
+                    minlength: 8,
                     PWCHECK: true
                 },
                 password_conf: {

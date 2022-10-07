@@ -1,28 +1,30 @@
-var turn = true;
-var move = 1;
+var turn = true; //Initialisation de la varible turn qui indique à qui est le tour
+var move = 1; //Initialisation de la variable move qui retourne le nombre du tour
 // Ajout de Cercle
 $(function (){
    $("td").click(function (){
 
-       if(!$(this).hasClass("symbole_0") && !$(this).hasClass("symbole_1")){
-           $(this).addClass(("symbole_") + ((turn) ? "1" : "0"))
+       if(!$(this).hasClass("symbole_0") && !$(this).hasClass("symbole_1")){ //Check quel symbole posede la case
+           $(this).addClass(("symbole_") + ((turn) ? "1" : "0")) //Si elle est vide on rajoute le symbole 1 ou 0 depended de turn
            turn =! turn // Inverser la valeur de bool
        }
        move++;
-            if (findWinner() == ("symbole_1")) {
-                $('body').append('<div class="winner"><span>Winner :</span> X</div>');
-                $('body').append('<button onclick="location.reload()">Play Again</button>');
-                $('.winner').css('background-color', '#00D8FF');
-                $('button').css('color', '#00D8FF');
-            } else if (findWinner() == ("symbole_0")) {
-                $('body').append('<div class="winner"><span>Winner :</span> O</div>');
-                $('body').append('<button class="glow-on-hover" type="button" onclick="location.reload()">Play Again</button>');
-                $('.winner').css('background-color', '#00D8FF');
-                $('button').css('color', '#00D8FF');
+            if (findWinner() == ("symbole_1")) { //Test si la case a le tag symbole_1
+                $('body').append('<div class="winner"><span>Winner :</span> X</div>'); //Ajout du texte qui retourne le Winner X
+                $('body').append('<button onclick="location.reload()">Play Again</button>'); //Pop in du bouton qui restart la game
+                $('.winner').css('background-color', '#00D8FF');//Initialise la couleur du texte Winner X
+                $('button').css('color', '#00D8FF'); //Initialise la couleur du bouton
+            }
+            else if (findWinner() == ("symbole_0")) { //Test si la case a le tag symbole_0
+                $('body').append('<div class="winner"><span>Winner :</span> O</div>');//Ajout du texte qui retourne le Winner 0
+                $('body').append('<button class="glow-on-hover" type="button" onclick="location.reload()">Play Again</button>'); //Pop in du bouton qui restart la game
+                $('.winner').css('background-color', '#00D8FF');//Initialiser la couleur du texte Winner 0
+                $('button').css('color', '#00D8FF'); //Initialiser la couleur du bouton
             }
    })
 });
 
+//Création du tableau for check who is the winner
 function findWinner() {
     cs1 = $("table tr:nth-child(1) td:nth-child(1)").attr('class');
     cs2 = $("table tr:nth-child(1) td:nth-child(2)").attr('class');
